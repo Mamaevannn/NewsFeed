@@ -10,7 +10,7 @@ import UIKit
 class NewsTableViewController: UITableViewController {
 
     var articles = Array<Article>()
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         

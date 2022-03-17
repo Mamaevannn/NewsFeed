@@ -31,7 +31,7 @@
                                                 <constraint firstAttribute="width" constant="374" id="yVV-y4-tZk"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSt-Io-MMI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSt-Io-MMI">
                                             <rect key="frame" x="360" y="261.5" width="29" height="11.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="author">
@@ -41,18 +41,6 @@
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-Uu-xXJ">
-                                            <rect key="frame" x="25" y="166" width="44.5" height="21"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
-                                            <color key="textColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-I6-NYJ">
-                                            <rect key="frame" x="374.5" y="166" width="19.5" height="11.5"/>
-                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
-                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3u6-BC-Ive">
@@ -75,6 +63,18 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYg-Uu-xXJ">
+                                            <rect key="frame" x="25" y="166" width="44.5" height="21"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-I6-NYJ">
+                                            <rect key="frame" x="374.5" y="169" width="19.5" height="11.5"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fSt-Io-MMI" firstAttribute="top" secondItem="uwC-uA-Av2" secondAttribute="bottom" constant="21.5" id="5dN-xi-abX"/>
@@ -86,9 +86,10 @@
                                         <constraint firstItem="3u6-BC-Ive" firstAttribute="leading" secondItem="csh-Xo-jBy" secondAttribute="leading" constant="25" id="HQd-RU-HbO"/>
                                         <constraint firstAttribute="trailing" secondItem="3u6-BC-Ive" secondAttribute="trailing" constant="15" id="JBx-31-WfX"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="fSt-Io-MMI" secondAttribute="bottom" constant="3" id="Nu6-JE-Mmd"/>
-                                        <constraint firstItem="Kbk-I6-NYJ" firstAttribute="top" secondItem="j6r-eZ-Crw" secondAttribute="bottom" constant="8" symbolic="YES" id="P3R-VS-Gnq"/>
-                                        <constraint firstItem="3u6-BC-Ive" firstAttribute="top" secondItem="Kbk-I6-NYJ" secondAttribute="bottom" constant="24.5" id="Rrh-Rm-6Ho"/>
+                                        <constraint firstItem="3u6-BC-Ive" firstAttribute="top" secondItem="Kbk-I6-NYJ" secondAttribute="bottom" constant="21.5" id="ZYH-ue-DHC"/>
                                         <constraint firstItem="Kbk-I6-NYJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="GYg-Uu-xXJ" secondAttribute="trailing" constant="305" id="dl3-FZ-Qvf"/>
+                                        <constraint firstItem="Kbk-I6-NYJ" firstAttribute="top" secondItem="j6r-eZ-Crw" secondAttribute="bottom" constant="11" id="f5i-QX-Piz"/>
+                                        <constraint firstItem="fSt-Io-MMI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="csh-Xo-jBy" secondAttribute="leading" constant="15" id="hW1-Ly-uha"/>
                                         <constraint firstItem="GYg-Uu-xXJ" firstAttribute="leading" secondItem="csh-Xo-jBy" secondAttribute="leading" constant="25" id="rYO-1N-2K6"/>
                                         <constraint firstItem="j6r-eZ-Crw" firstAttribute="top" secondItem="csh-Xo-jBy" secondAttribute="topMargin" id="sgJ-wl-r37"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fSt-Io-MMI" secondAttribute="trailing" constant="5" id="ulu-S6-IhD"/>

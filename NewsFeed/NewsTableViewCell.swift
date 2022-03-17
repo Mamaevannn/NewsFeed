@@ -19,7 +19,7 @@ class NewsTableViewCell: UITableViewCell {
     
    
     func configure(with articles: Article) {
-//        self.sourceLabel.text = articles.source?.name
+        self.sourceLabel.text = articles.source.name
         self.dateLabel.text = articles.publishedAt
         self.titleLabel.text = articles.title
         self.descriptionLabel.text = articles.description
