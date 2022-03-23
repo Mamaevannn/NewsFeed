@@ -10,7 +10,7 @@ import Alamofire
 
 class Service {
     
-    var url = ""
+    var url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6095bd68e8ed4b269ac01f27739f2d94"
     typealias newsCallBack = ( _ news: Response?, _ status : Bool, _ message: String) -> Void
     var callBack:  newsCallBack?
 

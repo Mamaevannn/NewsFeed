@@ -10,6 +10,8 @@ import SDWebImage
 
 class NewsTableViewCell: UITableViewCell {
 
+    // MARK: - IBoutlet
+    
     @IBOutlet weak var imageNews: UIImageView!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -19,12 +21,16 @@ class NewsTableViewCell: UITableViewCell {
     
    
     func configure(with articles: Article) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy'T'HH:mm:ssZ"
+        let formattedDate = dateFormatter.date(from: articles.publishedAt)
         self.sourceLabel.text = articles.source.name
-        self.dateLabel.text = articles.publishedAt
+        self.dateLabel.text = "\(formattedDate)"
         self.titleLabel.text = articles.title
         self.descriptionLabel.text = articles.description
         self.author.text = articles.author
         
+       
         imageNews.sd_setImage(with: URL(string: articles.urlToImage ?? ""),
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,

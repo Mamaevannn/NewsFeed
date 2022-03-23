@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/naida/Desktop/Swift/NewsFeed/NewsFeed.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
