@@ -16,7 +16,7 @@ class Service {
     private var articlesData = [Article]()
     
     
-    func getData <T> (topic: String, completion : @escaping ((Result<T,NError>)-> Void)) {
+    func getNews <T> (topic: String, completion : @escaping ((Result<T,NError>)-> Void)) {
         let endUrl = firstPartUrl + "\(topic)&apiKey=\(apiKey)"
         AF.request(endUrl).response { (resonseData) in
             guard let data = resonseData.data else {
@@ -36,7 +36,7 @@ class Service {
     }
     
     func getSegmentedNews(topic: String = "general") {
-        getData(topic: topic) { (result : Result<Response, NError>) in
+        getNews(topic: topic) { (result : Result<Response, NError>) in
             switch result {
             case .success(let news):
                 self.updateUI(with: news.articles ?? [])
