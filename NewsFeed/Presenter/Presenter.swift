@@ -25,9 +25,7 @@ class Presenter {
         self.view = view
     }
     
-    //здесь пишем все функции
-    
-   
 
+    
     
 }

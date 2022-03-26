@@ -19,18 +19,25 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var author: UILabel!
     
-   
+    private let iso8601Formatter = ISO8601DateFormatter()
+    
+    private var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.locale = Locale(identifier: "ru_RU_POSIX")
+        return formatter
+    }()
+    
     func configure(with articles: Article) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy'T'HH:mm:ssZ"
-        let formattedDate = dateFormatter.date(from: articles.publishedAt)
+
+        let isoDate = iso8601Formatter.date(from: articles.publishedAt)
+        let formattedDate = dateFormatter.string(from: isoDate ?? Date())
+        self.dateLabel.text = formattedDate
         self.sourceLabel.text = articles.source.name
-        self.dateLabel.text = "\(formattedDate)"
         self.titleLabel.text = articles.title
         self.descriptionLabel.text = articles.description
         self.author.text = articles.author
         
-       
         imageNews.sd_setImage(with: URL(string: articles.urlToImage ?? ""),
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,
