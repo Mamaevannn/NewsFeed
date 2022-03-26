@@ -19,7 +19,7 @@
 		AC98C38A27E24CCA001EA4A4 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98C38927E24CCA001EA4A4 /* NewsTableViewController.swift */; };
 		AC98C3B227E25785001EA4A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98C3B127E25785001EA4A4 /* NetworkService.swift */; };
 		AC98C3B927E3B1AF001EA4A4 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98C3B827E3B1AF001EA4A4 /* Presenter.swift */; };
-		AC98C3BD27E4B58C001EA4A4 /* NewsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98C3BC27E4B58C001EA4A4 /* NewsNetworkService.swift */; };
+		ACDFFE8427EFC226004F5703 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDFFE8327EFC226004F5703 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		AC98C38927E24CCA001EA4A4 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		AC98C3B127E25785001EA4A4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AC98C3B827E3B1AF001EA4A4 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		AC98C3BC27E4B58C001EA4A4 /* NewsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsNetworkService.swift; sourceTree = "<group>"; };
+		ACDFFE8327EFC226004F5703 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				AC98C3B127E25785001EA4A4 /* NetworkService.swift */,
+				ACDFFE8327EFC226004F5703 /* NetworkError.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -102,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				AC98C38527E22CEC001EA4A4 /* Response.swift */,
-				AC98C3BC27E4B58C001EA4A4 /* NewsNetworkService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 				AC98C36C27E22121001EA4A4 /* AppDelegate.swift in Sources */,
 				AC98C3B927E3B1AF001EA4A4 /* Presenter.swift in Sources */,
 				AC98C38A27E24CCA001EA4A4 /* NewsTableViewController.swift in Sources */,
-				AC98C3BD27E4B58C001EA4A4 /* NewsNetworkService.swift in Sources */,
 				AC98C38827E24C9F001EA4A4 /* NewsTableViewCell.swift in Sources */,
 				AC98C36E27E22121001EA4A4 /* SceneDelegate.swift in Sources */,
+				ACDFFE8427EFC226004F5703 /* NetworkError.swift in Sources */,
 				AC98C38627E22CEC001EA4A4 /* Response.swift in Sources */,
 				AC98C3B227E25785001EA4A4 /* NetworkService.swift in Sources */,
 			);

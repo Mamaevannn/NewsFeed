@@ -43,7 +43,7 @@ class NewsTableViewController: UITableViewController {
         
         // network
         let service = Service()
-        service.getData()
+        service.getSegmentedNews()
         service.completionHandler { [weak self] (articles, status, message) in
             if status {
                 guard let self = self else {return}
@@ -60,7 +60,7 @@ class NewsTableViewController: UITableViewController {
         guard let categoryTitle = sender.titleForSegment(at: newSegemnt.selectedSegmentIndex) else { return }
         print("title \(categoryTitle)")
         let service = Service()
-        service.getData(topic: categoryTitle)
+        service.getSegmentedNews(topic: categoryTitle)
 //        self.tableView.reloadData()
  
         
