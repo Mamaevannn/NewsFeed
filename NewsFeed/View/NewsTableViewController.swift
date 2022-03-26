@@ -10,7 +10,9 @@ import SafariServices
 
 class NewsTableViewController: UITableViewController {
     
-    var articles = Array<Article>()
+    @IBOutlet weak var newSegemnt: UISegmentedControl!
+    
+    var articlesData = [Article]()
     var presenter: Presenter?
    
     private let searchController = UISearchController(searchResultsController: nil)
@@ -40,18 +42,29 @@ class NewsTableViewController: UITableViewController {
         definesPresentationContext = true
         
         // network
-        let service = Service(url: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6095bd68e8ed4b269ac01f27739f2d94")
+        let service = Service()
         service.getData()
         service.completionHandler { [weak self] (articles, status, message) in
             if status {
                 guard let self = self else {return}
                 guard let _articles = articles?.articles else {return}
-                self.articles = _articles
+                self.articlesData = _articles
                 self.tableView.reloadData()
             }
         }
     }
     
+    
+    
+    @IBAction func didSelectCategory(_ sender: UISegmentedControl) {
+        guard let categoryTitle = sender.titleForSegment(at: newSegemnt.selectedSegmentIndex) else { return }
+        print("title \(categoryTitle)")
+        let service = Service()
+        service.getData(topic: categoryTitle)
+//        self.tableView.reloadData()
+ 
+        
+    }
     // MARK: - Table view data source
     
     
@@ -59,7 +72,7 @@ class NewsTableViewController: UITableViewController {
         if isFiltering {
             return filteredNews.count
         }
-        return self.articles.count
+        return articlesData.count
     }
     
     
@@ -70,8 +83,9 @@ class NewsTableViewController: UITableViewController {
         var article: Article
         if isFiltering {
             article = filteredNews[indexPath.row]
-        } else {
-            article = articles[indexPath.row]
+        }
+        else {
+            article = articlesData[indexPath.row]
         }
         cell.configure(with: article)
         return cell
@@ -80,10 +94,10 @@ class NewsTableViewController: UITableViewController {
 
 extension NewsTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!, with: articles)
+        filterContentForSearchText(searchController.searchBar.text!, with: articlesData)
     }
     private func filterContentForSearchText( _ searchText: String, with news: [Article]) {
-        filteredNews = articles.filter({ (news: Article) -> Bool in
+        filteredNews = articlesData.filter({ (news: Article) -> Bool in
             return news.title.lowercased().contains(searchText.lowercased())
         })
         
@@ -97,7 +111,7 @@ extension NewsTableViewController {
         let config = SFSafariViewController.Configuration.init()
         config.barCollapsingEnabled = true
         
-        let selectedNews = articles[indexPath.row]
+        let selectedNews = articlesData[indexPath.row]
         guard let url = URL(string: selectedNews.url) else {return}
         let safariVC = SFSafariViewController(url: url, configuration: config)
         present(safariVC, animated: true, completion: nil)
