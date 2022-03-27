@@ -44,6 +44,7 @@ class NewsTableViewController: UITableViewController {
         
         // network
         
+        
 //        self.service.getSegmentedNews(topic: )
         self.service.getSegmentedNews(topic: "general", completion: { news in
             self.articlesData = news.articles ?? []

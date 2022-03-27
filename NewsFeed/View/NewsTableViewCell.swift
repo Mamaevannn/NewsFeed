@@ -36,9 +36,9 @@ class NewsTableViewCell: UITableViewCell {
         self.sourceLabel.text = articles.source.name
         self.titleLabel.text = articles.title
         self.descriptionLabel.text = articles.description
-        self.author.text = articles.author
+//        self.author.text = articles.author
         
-        imageNews.sd_setImage(with: URL(string: articles.urlToImage ?? ""),
+        imageNews.sd_setImage(with: URL(string: articles.urlToImage ?? "https://cdn.pixabay.com/photo/2017/06/10/07/22/news-2389226_1280.png"),
                               placeholderImage: UIImage(systemName: "photo"),
                               options: .continueInBackground,
                               completed: nil)
