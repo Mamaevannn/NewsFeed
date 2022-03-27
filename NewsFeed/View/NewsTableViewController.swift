@@ -14,6 +14,7 @@ class NewsTableViewController: UITableViewController {
     
     var articlesData = [Article]()
     var presenter: Presenter?
+    let service = Service()
    
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredNews = Array<Article>()
@@ -42,8 +43,11 @@ class NewsTableViewController: UITableViewController {
         definesPresentationContext = true
         
         // network
-        let service = Service()
-        service.getSegmentedNews()
+        
+//        self.service.getSegmentedNews(topic: )
+        self.service.getSegmentedNews(topic: "general", completion: { news in
+            self.articlesData = news.articles ?? []
+        })
         service.completionHandler { [weak self] (articles, status, message) in
             if status {
                 guard let self = self else {return}
@@ -59,8 +63,9 @@ class NewsTableViewController: UITableViewController {
     @IBAction func didSelectCategory(_ sender: UISegmentedControl) {
         guard let categoryTitle = sender.titleForSegment(at: newSegemnt.selectedSegmentIndex) else { return }
         print("title \(categoryTitle)")
-        let service = Service()
-        service.getSegmentedNews(topic: categoryTitle)
+        self.service.getSegmentedNews(topic: categoryTitle, completion: { news in
+            self.articlesData = news.articles ?? []
+        })
 //        self.tableView.reloadData()
  
         
